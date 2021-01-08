@@ -31,7 +31,7 @@
 		<p>
 		<table border="1">
 			<tr>
-				<th>프로그램 번호</th>
+				<th>프로그램 번호</th>3
 				<th>플레이리스트</th>
 				<th>유튜브 url</th>
 				<th>채널</th>

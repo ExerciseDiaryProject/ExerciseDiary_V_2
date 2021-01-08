@@ -44,10 +44,6 @@
 					<td><a href='${data.youtubeUrl}'>${data.youtubeUrl}</a></td>
 					<td>${data.channel.getChannel()}</td>
 					<td>${data.purpose.getPurpose()}</td>
-					<%-- <td><a
-						href="probono?command=activist&activistId=${data.activistId}">${data.activistId}</a></td>
-					<td><a href="receiveDetail.jsp" target="_blank">${data.receiveId}</a></td>
-					<td>${data.projectContent}</td> --%>
 				</tr>
 			</c:forEach>
 		</table>

@@ -35,6 +35,7 @@
 	<div align="right">
 	
 	<a href="excerciseDiary?command=getUser&userId=${sessionScope.id}">마이페이지</a>
+	<a href="excerciseDiary?command=ggetDiaryList&userId=${sessionScope.id}">다이어리 관리</a>
 	</div>
 	<center>
 	${sessionScope.successMsg}

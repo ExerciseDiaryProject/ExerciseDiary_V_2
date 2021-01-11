@@ -8,6 +8,8 @@ DROP TABLE video cascade constraint;
 
 DROP TABLE diary cascade constraint;
 
+DROP sequence seq_diary;
+
 
 CREATE TABLE purpose (
 	purpose	VARCHAR2(20)	PRIMARY KEY
@@ -38,7 +40,7 @@ CREATE TABLE video (
 );
 
 CREATE TABLE diary (
-	diary_no	VARCHAR2(20)	PRIMARY KEY,
+	diary_no	number	PRIMARY KEY,
 	diary_title	VARCHAR2(50)	NOT NULL,
 	diary_content	VARCHAR2(200)	NOT NULL,
 	write_date	DATE NOT NULL,
@@ -89,3 +91,5 @@ ALTER TABLE video ADD CONSTRAINT FK_purpose_TO_video_1 FOREIGN KEY (
 REFERENCES purpose (
 	purpose
 );
+
+CREATE SEQUENCE seq_diary START WITH 2 INCREMENT BY 1 ; 

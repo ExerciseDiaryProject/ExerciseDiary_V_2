@@ -64,6 +64,7 @@ public class EDService {
 	// user 반환
 	public static Users getUser(String userId) throws NotExistException, SQLException{
 		Users user = UserDAO.getUser(userId);
+
 		if(user == null){
 			throw new NotExistException("존재하지 않는 id입니다.");
 		}

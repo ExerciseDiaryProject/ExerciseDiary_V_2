@@ -16,5 +16,6 @@
 	<iframe src='https://www.youtube.com/embed/${videoDetail.youtubeUrl}'></iframe><br>
 </div>
 <a href="writeDiary.jsp"><input type="button" value="다이어리 작성"></a>
+<span style="font-size:15;">&lt;<a href="exerciseDiary?command=getAllVideoList">돌아가기</a>&gt;</span></div>
 </body>
 </html>

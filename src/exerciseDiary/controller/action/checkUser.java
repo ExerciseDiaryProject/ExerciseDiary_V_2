@@ -17,7 +17,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class checkUser implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "showError.jsp";
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 
@@ -26,25 +25,14 @@ public class checkUser implements Action{
 
 			if(result) {
 				request.getSession().setAttribute("id", id);
-
-				try {
-					ArrayList<Video> vList = EDService.getAllVideoList();
-					request.setAttribute("vList", vList);
-
-					request.getSession().setAttribute("successMsg","모든 영상 list 반환 성공");
-					url = "vList.jsp";
-				}catch(Exception s){
-					log.info("모든영상 list 반환 에러 발생");
-					System.out.println(s.getMessage());
-					request.getSession().setAttribute("errorMsg", s.getMessage());
-					s.printStackTrace();
-				}
+				response.sendRedirect("exerciseDiary?command=getAllVideoList&userId=id");
+//				request.getRequestDispatcher("exerciseDiary?command=getAllVideoList").forward(request, response);
 			}
 		} catch (Exception e) {
 			log.info("로그인 중 에러 발생");
 			System.out.println(e.getMessage());
 			request.getSession().setAttribute("errorMsg", e.getMessage());
+			request.getRequestDispatcher("showError.jsp").forward(request, response);
 		}
-		request.getRequestDispatcher(url).forward(request, response);
 	}
 }

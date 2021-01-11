@@ -25,7 +25,7 @@ public class updateUserPurpose implements Action{
 		try{
 			boolean result = EDService.updateUserPurpose(id,purpose);
 			if(result){
-				request.getSession().setAttribute("id", EDService.getUser(id));
+				request.getSession().setAttribute("user", EDService.getUser(id));
 				request.getSession().setAttribute("successMsg", "수정 완료");
 				log.info("운동목적 수정이 완료되었습니다.");
 

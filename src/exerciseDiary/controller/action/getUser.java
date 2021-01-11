@@ -20,8 +20,8 @@ public class getUser implements Action{
 		String url = "showError.jsp";
 
 		try {
-			String id = request.getParameter("userId");
-			request.getSession().setAttribute("id", EDService.getUser(id));
+			String id = (String)request.getSession().getAttribute("id");
+			request.getSession().setAttribute("user", EDService.getUser(id));
 			request.getSession().setAttribute("successMsg", "list 출력 성공");
 
 			url = "myPage.jsp";

@@ -7,10 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import excerciseDiary.model.EDService;
-import excerciseDiary.model.entity.Purpose;
-import excerciseDiary.model.entity.Users;
-import excerciseDiary.model.entity.Video;
+import exerciseDiary.model.EDService;
+import exerciseDiary.model.entity.Video;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -20,9 +18,9 @@ public class getVideoList implements Action{
 		String url = "showError.jsp";
 
 		try {
-			ArrayList<Video> vListPurpose = EDService.getVideoList(request.getParameter("purpose"));
-
-			request.getSession().setAttribute("vListPurpose", vListPurpose);
+			ArrayList<Video> vListPurpose = EDService.getVideoList(request.getParameter("value"));
+			
+			request.setAttribute("vListPurpose", vListPurpose);
 			request.getSession().setAttribute("successMsg","목적별 영상 list 반환 성공");
 
 			url = "vListPurpose.jsp";

@@ -89,4 +89,3 @@ ALTER TABLE video ADD CONSTRAINT FK_purpose_TO_video_1 FOREIGN KEY (
 REFERENCES purpose (
 	purpose
 );
-

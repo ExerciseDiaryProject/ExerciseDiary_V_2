@@ -7,11 +7,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import excerciseDiary.model.EDService;
-import excerciseDiary.model.entity.Diary;
-import excerciseDiary.model.entity.Purpose;
-import excerciseDiary.model.entity.Users;
-import excerciseDiary.model.entity.Video;
+import exerciseDiary.model.EDService;
+import exerciseDiary.model.entity.Diary;
+import exerciseDiary.model.entity.Purpose;
+import exerciseDiary.model.entity.Users;
+import exerciseDiary.model.entity.Video;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -20,7 +20,7 @@ public class addDiary implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "showError.jsp";
 
-		// 입력 값
+		// 입력 값u
 		String diaryNo = request.getParameter("diaryNo");
 		String diaryTitle = request.getParameter("diaryTitle");
 		String diaryContent = request.getParameter("diaryContent");
@@ -37,7 +37,8 @@ public class addDiary implements Action{
 				request.getSession().setAttribute("diary", diary);
 				request.setAttribute("successMsg", "작성 완료");
 				log.info("다이어리 작성 완료");
-				//  url = "activistDetail.jsp";
+				
+				url ="writeDiary.jsp";
 
 			}else{
 				request.setAttribute("errorMsg", "다시 시도하세요");

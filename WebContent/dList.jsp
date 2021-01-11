@@ -2,30 +2,24 @@
 <%@ page import="exerciseDiary.model.entity.Diary" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
-
-<table align="center" border="0" cellpadding="5" cellspacing="2" width="100%" bordercolordark="white" bordercolorlight="black">
+${sessionScope.successMsg }
+<br><hr><br>
+<h3 align="center">다이어리 list</h3>
+<table align="center" border="0" cellpadding="5" cellspacing="2" width="70%" bordercolordark="white" bordercolorlight="black">
 	<colgroup>
-		<col width="5%"/>
 		<col width="15%"/>
 		<col width="50%"/>
-		<col width="10%"/>
-		<col width="10%"/>
+		<col width="15%"/>
 		<col width="10%"/>
 	</colgroup>
 	<tr>
         <td bgcolor="#336699">
-            <p align="center">
-            <font color="white"><b><span style="font-size:9pt;">번 호</span></b></font></p>
+            <p align="center"><font color="white"><b><span style="font-size:9pt;">운 동 목 적</span></b></font></p>
         </td>
         <td bgcolor="#336699">
             <p align="center"><font color="white"><b><span style="font-size:9pt;">제 목</span></b></font></p>
         </td>
-        <td bgcolor="#336699">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">내 용</span></b></font></p>
-        </td>
-        <td bgcolor="#336699">
-            <p align="center"><font color="white"><b><span style="font-size:9pt;">운 동 목 적</span></b></font></p>
-        </td>
+        
         <td bgcolor="#336699">
             <p align="center"><font color="white"><b><span style="font-size:9pt;">작 성 일</span></b></font></p>
         </td>
@@ -44,24 +38,17 @@
     <c:otherwise>
 	<c:forEach items="${requestScope.diaryList}" var="e">
 		    <tr>
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-		            ${e.diaryNo}</span></p>
-		        </td>
-		        <td bgcolor="">
-					<p align="center"><span style="font-size:9pt;">
-					${e.diaryTitle}</span></p>
-		        </td>
-		        <td bgcolor="">
-		            <p align="center"><span style="font-size:9pt;">
-						<a href="exerciseDiary?command=getDiaryDetail&diaryNo=${e.diaryNo}">${e.diaryContent}</a>
-					</span></p>
-		        </td>
-		        <td bgcolor="">
+		         <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 						${e.purpose.getPurpose()}
 					</span></p>
 		        </td>
+		        <td bgcolor="">
+					<p align="center"><span style="font-size:9pt;">
+					<a href="exerciseDiary?command=getDiaryDetail&diaryNo=${e.diaryNo}">${e.diaryTitle}</a></span></p>
+		        </td>
+		        
+		       
 		        <td bgcolor="">
 		            <p align="center"><span style="font-size:9pt;">
 		            ${e.writeDate}</span></p>
@@ -77,4 +64,5 @@
 </table>
 <hr>
 <div align=right>
-<span style="font-size:9pt;">&lt;<a href="writeDiary.jsp">글쓰기</a>&gt;</span></div>
+<span style="font-size:15;">&lt;<a href="writeDiary.jsp">글쓰기</a>&gt;</span></div>
+<span style="font-size:15;">&lt;<a href="exerciseDiary?command=getAllVideoList">돌아가기</a>&gt;</span></div>

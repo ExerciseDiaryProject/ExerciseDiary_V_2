@@ -16,39 +16,37 @@ ${sessionScope.successMsg}
 
 <form action="exerciseDiary" method="post">
 	<input type="hidden" name="command" value="updateUserReq">
-	<input type="hidden" name="userId" value="${id.userId}">
+	<input type="hidden" name="userId" value="${sessionScope.id}">
 	<table border="1">
 		
 		<tr>
-			<td>id</td><td>${id.userId}</td>
-		</tr>
-		<tr>	
-			<td>pw</td><td>${id.userPassword}</td>
-	 	</tr>
-	 	<tr>
-	 		<td>name</td><td>${id.userName}</td>
+			<td>id</td><td>${user.userId}</td>
 		</tr>
 	 	<tr>
-	 		<td>gender</td><td>${id.userGender}</td>
+	 		<td>name</td><td>${user.userName}</td>
+		</tr>
+	 	<tr>
+	 		<td>gender</td><td>${user.userGender}</td>
 		</tr>
 		<tr>
-	 		<td>age</td><td>${id.userAge}</td>
+	 		<td>age</td><td>${user.userAge}</td>
 		</tr>
 		<tr>
-	 		<td>height</td><td>${id.userHeight}</td>
+	 		<td>height</td><td>${user.userHeight}</td>
 		</tr>
 		<tr>
-	 		<td>weight</td><td>${id.userWeight}</td>
+	 		<td>weight</td><td>${user.userWeight}</td>
 		</tr>
 		<tr>
-			<td>purpose</td><td>${sessionScope.id.purpose.purpose}</td>
+			<td>purpose</td><td>${user.purpose.purpose}</td>
 		</tr>
 	 	<tr align="center">
 	 		<td colspan="2"><input type="submit" value="수정">&nbsp;&nbsp;&nbsp;
-	 		<input type="button" value="탈퇴" onclick="location.href='exerciseDiary?command=userDelete&userId=${id.userId}'"></td>
+	 		<input type="button" value="탈퇴" onclick="location.href='exerciseDiary?command=userDelete&userId=${sessionScope.id}'"></td>
 	 	</tr>
 	</table>
 	</form>
+	<span style="font-size:15;">&lt;<a href="exerciseDiary?command=getAllVideoList&userId=${sessionScope.id}">돌아가기</a>&gt;</span></div>
 
 <br><br><br>
 

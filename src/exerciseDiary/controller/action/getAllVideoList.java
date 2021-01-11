@@ -18,15 +18,17 @@ import lombok.extern.slf4j.Slf4j;
 public class getAllVideoList implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "showError.jsp";
-
+		
 		try {
+			request.getSession().getAttribute("id");
 			ArrayList<Video> vList = EDService.getAllVideoList();
-
 			request.setAttribute("vList", vList);
-			request.getSession().setAttribute("successMsg","모든 영상 list 반환 성공");
 
-		} catch(Exception s){
-			log.info("모든영상 list 반환 에러 발생");
+			request.getSession().setAttribute("successMsg","영상 list 반환 성공");
+			url = "vList.jsp";
+		}catch(Exception s){
+			log.info("영상 list 반환 에러 발생");
+			System.out.println(s.getMessage());
 			request.getSession().setAttribute("errorMsg", s.getMessage());
 			s.printStackTrace();
 		}

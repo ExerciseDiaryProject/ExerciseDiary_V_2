@@ -14,7 +14,7 @@
 	<c:forEach items="${requestScope.vListPurpose}" var="data">
 		<tr>
 			<td>${data.programNo}</td>
-			<td>${data.playlist}</td>
+			<td><a href="excerciseDiary?command=getVideoDetail&playlist=${data.playlist}">${data.playlist}</a></td>
 			<td><a href='${data.youtubeUrl}'>${data.youtubeUrl}</a></td>
 			<td>${data.channel.getChannel()}</td>
 			<td>${data.purpose.getPurpose()}</td>

@@ -6,12 +6,12 @@ function sendUpdate(){
 	document.requestForm.submit();
 }
 function sendDelete(){
-	var password = prompt("삭제할 게시물의 비밀번호를 입력하세요");
-	if(password){
-		document.requestForm.command.value ="delete";
-		document.requestForm.password.value = password;
+	let recheck = confirm("정말 삭제하시겠습니까?");
+
+	if(recheck) {
+		document.requestForm.command.value ="deleteDiary";
 		document.requestForm.submit();
-	}else{
+	} else{
 		return false;
 	}
 }
@@ -82,11 +82,9 @@ function sendDelete(){
         <td height="20" colspan="4" align="center" valign="middle">
 			<!-- 수정시 필요한 데이터들을 hidden으로 숨겨놓고 폼 데이터로 보내준다. -->
 			<form name="requestForm" method=post action="exerciseDiary">
-				<input type=hidden name=num value="${requestScope.diaryDetail}">
 				<input type=hidden name="command" value="">
-				<input type=hidden name="password" value="">
-				<input type=button value="수정하기" onClick="sendUpdate()">
-				<input type=button value="삭제하기" onClick="sendDelete()">
+				<input type=hidden name="diaryNo" value="${requestScope.diaryDetail.diaryNo}">
+				<input type=button value="삭제하기" onclick="sendDelete()">
 			</form>
 		</td>
     </tr>

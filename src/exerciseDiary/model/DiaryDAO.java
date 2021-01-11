@@ -37,14 +37,14 @@ public class DiaryDAO {
 	}
 	
 	// 다이어리 삭제
-	public static boolean deleteDiary(String diaryNo) {
+	public static boolean deleteDiary(int diaryNo) {
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		
 		tx.begin();
 		
 		try {
-			int result = em.createNativeQuery("delete from diary where diaryNo=?")
+			int result = em.createNativeQuery("delete from diary where diary_no=?")
 					.setParameter(1, diaryNo).executeUpdate();
 			tx.commit();
 			if(result==1) {

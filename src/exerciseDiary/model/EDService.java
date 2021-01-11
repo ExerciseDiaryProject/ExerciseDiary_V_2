@@ -145,7 +145,8 @@ public class EDService {
 	// 다이어리 삭제
 	public static boolean deleteDiary(String diaryNo) throws SQLException, NotExistException{
 		notExistDiary(diaryNo);
-		boolean result = DiaryDAO.deleteDiary(diaryNo);
+		int diary = Integer.parseInt(diaryNo);
+		boolean result = DiaryDAO.deleteDiary(diary);
 		if(!result){
 			throw new NotExistException("일기 삭제 실패");
 		}

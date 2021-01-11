@@ -34,18 +34,15 @@ public class addDiary implements Action {
 			purpose = EDService.findPurpose(request.getParameter("purpose"));
 			programNo = EDService.findProgram(request.getParameter("programNo"));
 
-
-//			Diary diary = new Diary(diaryTitle, diaryContent, date, todayWeight, new Users(userId), new Purpose(purpose), new Video(programNo));
-//			Diary diary = new Diary();
 			boolean result = EDService
 					.addDiary(Diary.builder().diaryTitle(diaryTitle).diaryContent(diaryContent).writeDate(date)
 							.todayWeight(todayWeight).userId(userId).purpose(purpose).programNo(programNo).build());
 
 			if (result) {
-				request.getSession().setAttribute("diaryList", result);
+//				request.getSession().setAttribute("diaryList", result);
 				request.setAttribute("successMsg", "작성 완료");
-//				url = "dList.jsp";
-				response.sendRedirect("exerciseDiary?command=getDiaryList&userId=userId");
+				
+				response.sendRedirect("exerciseDiary?command=getDiaryList");
 				log.info("다이어리 작성 완료");
 
 			} else {

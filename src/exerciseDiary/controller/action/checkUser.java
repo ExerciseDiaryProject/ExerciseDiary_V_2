@@ -7,10 +7,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import excerciseDiary.model.EDService;
-import excerciseDiary.model.entity.Purpose;
-import excerciseDiary.model.entity.Users;
-import excerciseDiary.model.entity.Video;
+import exerciseDiary.model.EDService;
+import exerciseDiary.model.entity.Purpose;
+import exerciseDiary.model.entity.Users;
+import exerciseDiary.model.entity.Video;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -29,7 +29,7 @@ public class checkUser implements Action{
 
 				try {
 					ArrayList<Video> vList = EDService.getAllVideoList();
-					request.getSession().setAttribute("vList", vList);
+					request.setAttribute("vList", vList);
 
 					request.getSession().setAttribute("successMsg","모든 영상 list 반환 성공");
 					url = "vList.jsp";

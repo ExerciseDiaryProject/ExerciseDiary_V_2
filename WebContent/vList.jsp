@@ -56,7 +56,6 @@
 			<tr>
 				<th>프로그램 번호</th>
 				<th>플레이리스트</th>
-				<th>유튜브 url</th>
 				<th>채널</th>
 				<th>운동 목적</th>
 			</tr>
@@ -64,7 +63,6 @@
 				<tr>
 					<td>${data.programNo}</td>
 					<td><a href="excerciseDiary?command=getVideoDetail&playlist=${data.playlist}">${data.playlist}</a></td>
-					<td><a href='${data.youtubeUrl}'>${data.youtubeUrl}</a></td>
 					<td>${data.channel.getChannel()}</td>
 					<td>${data.purpose.getPurpose()}</td>
 				</tr>

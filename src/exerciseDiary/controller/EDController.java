@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import exerciseDiary.controller.action.Action;
 
-@WebServlet("/excerciseDiary")
+@WebServlet("/exerciseDiary")
 public class EDController extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

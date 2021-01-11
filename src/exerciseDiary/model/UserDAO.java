@@ -61,10 +61,11 @@ public class UserDAO {
 			EntityTransaction tx = em.getTransaction();
 			Users user = null;
 
+			System.out.println(userId+"dao");
 			try {
-				user = (Users) em.createNativeQuery("select user_id from users where user_id=?", Users.class)
+				user = (Users) em.createNativeQuery("select * from users where user_id=?", Users.class)
 						.setParameter(1, userId).getSingleResult();
-				
+
 			} catch (Exception e) {
 				tx.rollback();
 				e.printStackTrace();

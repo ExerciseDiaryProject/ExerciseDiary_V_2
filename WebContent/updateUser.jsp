@@ -14,7 +14,7 @@ ${sessionScope.successMsg}
 <h3>회원정보 수정</h3>
 <hr><p>
 
-<form action="excerciseDiary" method="post">
+<form action="exerciseDiary" method="post">
 	<input type="hidden" name="command" value="updateUser">
 	<input type="hidden" name="userId" value="${id.userId}">
 	 

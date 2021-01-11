@@ -14,7 +14,7 @@ ${sessionScope.successMsg}
 <h3>마이페이지</h3>
 <hr><p>
 
-<form action="excerciseDiary" method="post">
+<form action="exerciseDiary" method="post">
 	<input type="hidden" name="command" value="updateUserReq">
 	<input type="hidden" name="userId" value="${id.userId}">
 	<table border="1">
@@ -45,7 +45,7 @@ ${sessionScope.successMsg}
 		</tr>
 	 	<tr align="center">
 	 		<td colspan="2"><input type="submit" value="수정">&nbsp;&nbsp;&nbsp;
-	 		<input type="button" value="탈퇴" onclick="location.href='excerciseDiary?command=userDelete&userId=${id.userId}'"></td>
+	 		<input type="button" value="탈퇴" onclick="location.href='exerciseDiary?command=userDelete&userId=${id.userId}'"></td>
 	 	</tr>
 	</table>
 	</form>

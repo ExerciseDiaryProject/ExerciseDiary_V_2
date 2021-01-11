@@ -12,7 +12,7 @@
 	<script type="text/javascript">
 
 	function listtable(){
-		axios.get('excerciseDiary' , {
+		axios.get('exerciseDiary' , {
 			params : {
 				command : "purpose",
 				value : purpose.value
@@ -34,8 +34,8 @@
 	<br>
 	<div align="right">
 	
-	<a href="excerciseDiary?command=getUser&userId=${sessionScope.id}">마이페이지</a>
-	<a href="excerciseDiary?command=ggetDiaryList&userId=${sessionScope.id}">다이어리 관리</a>
+	<a href="exerciseDiary?command=getUser&userId=${sessionScope.id}">마이페이지</a>
+	<a href="exerciseDiary?command=getDiaryList&userId=${sessionScope.id}">다이어리 관리</a>
 	</div>
 	<center>
 	${sessionScope.successMsg}
@@ -62,7 +62,7 @@
 			<c:forEach items="${requestScope.vList}" var="data">
 				<tr>
 					<td>${data.programNo}</td>
-					<td><a href="excerciseDiary?command=getVideoDetail&playlist=${data.playlist}">${data.playlist}</a></td>
+					<td><a href="exerciseDiary?command=getVideoDetail&playlist=${data.playlist}">${data.playlist}</a></td>
 					<td>${data.channel.getChannel()}</td>
 					<td>${data.purpose.getPurpose()}</td>
 				</tr>

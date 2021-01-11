@@ -16,6 +16,8 @@ public class DiaryDAO {
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		
+		System.out.println(diary);
+		System.out.println(diary.getUserId());
 		tx.begin();
 		try {
 //			Diary newDiary = Diary.builder().diaryNo(diary.getDiaryNo()).diaryTitle(diary.getDiaryTitle())
@@ -82,12 +84,15 @@ public class DiaryDAO {
 	// 다이어리 상세보기
 	public static Diary getDiaryDetail(String diaryNo) throws SQLException {
 		EntityManager em = PublicCommon.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
 		Diary diary = null;
+		int diaryNum = Integer.parseInt(diaryNo);
+		tx.begin();
 		
 		try {
-			diary = (Diary) em.createNativeQuery("select * from diary where diary_no=?", Diary.class)
-					.setParameter(1, diaryNo).getSingleResult();
+			diary = em.find(Diary.class, diaryNum);
 		} catch (Exception e) {
+			tx.rollback();
 			e.printStackTrace();
 			throw e;
 			

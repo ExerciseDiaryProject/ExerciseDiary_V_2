@@ -28,6 +28,16 @@
 			 }); 
 	};
 	
+	function logout() {
+		let recheck = confirm("로그아웃 하시겠습니까?");
+		
+		if(recheck) {
+			location.href="exerciseDiary?command=logout";
+		} else{
+			return false;
+		}
+	}
+	
 	</script>
 
 <body>
@@ -36,6 +46,8 @@
 	
 	<a href="exerciseDiary?command=getUser&userId=${sessionScope.id}">마이페이지</a>
 	<a href="exerciseDiary?command=getDiaryList&userId=${sessionScope.id}">다이어리 관리</a>
+	<a href="#none" onclick="logout()">로그아웃</a>
+	
 	</div>
 	<center>
 	${sessionScope.successMsg}
@@ -47,7 +59,6 @@
 				<option value="근육량 증가">근육량증가</option>
 				<option value="체형관리">체형관리</option>
 			</select> <input type="submit" value="검색" onclick="listtable()">
-
 		<p>
 		<hr>
 		<p>

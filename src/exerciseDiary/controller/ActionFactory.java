@@ -4,6 +4,7 @@ import exerciseDiary.controller.action.Action;
 import exerciseDiary.controller.action.addDiary;
 import exerciseDiary.controller.action.addUser;
 import exerciseDiary.controller.action.checkUser;
+import exerciseDiary.controller.action.userLogout;
 import exerciseDiary.controller.action.deleteDiary;
 import exerciseDiary.controller.action.deleteUser;
 import exerciseDiary.controller.action.getAllVideoList;
@@ -28,11 +29,13 @@ public class ActionFactory {
 			action = new addUser();
 		} else if(command.equals("logIn")){ // 로그인
 			action = new checkUser();
+		} else if(command.equals("logout")) { // 로그아웃
+			action = new userLogout();
 		} else if(command.equals("getUser")){ // 마이페이지
 			action = new getUser();
 		} else if(command.equals("updateUserReq")){ // 마이페이지 user 정보 수정
 			action = new updateUserReq();
-		} else if(command.equals("updateUserPurpose")){ // 마이페이지 user 운동목적 수정
+		} else if(command.equals("updateUser")){ // 마이페이지 user 운동목적 수정
 			action = new updateUserPurpose();
 		} else if(command.equals("deleteUser")){ // 마이페이지 user 정보 삭제
 			action = new deleteUser();

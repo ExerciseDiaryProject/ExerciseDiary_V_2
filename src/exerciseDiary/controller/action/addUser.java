@@ -1,7 +1,6 @@
 package exerciseDiary.controller.action;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +12,7 @@ import exerciseDiary.model.entity.Users;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class addUser implements Action {
+public class AddUser implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "showError.jsp";
 

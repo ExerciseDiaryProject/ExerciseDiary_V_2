@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import exerciseDiary.model.EDService;
-import exerciseDiary.model.UserDAO;
 import exerciseDiary.model.entity.Diary;
 import exerciseDiary.model.entity.Purpose;
 import exerciseDiary.model.entity.Users;
@@ -16,7 +15,7 @@ import exerciseDiary.model.entity.Video;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class addDiary implements Action {
+public class AddDiary implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 입력 값
 		String diaryTitle = request.getParameter("diaryTitle");

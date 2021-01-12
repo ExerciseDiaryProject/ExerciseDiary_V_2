@@ -50,7 +50,7 @@
 	
 	</div>
 	<center>
-	${sessionScope.successMsg}
+	${successMsg}
 		<h3>운동 영상 list</h3>
 		<hr>
 		

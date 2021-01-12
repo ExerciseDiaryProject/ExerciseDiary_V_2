@@ -9,7 +9,7 @@
 </head>
 <body>
 <center>
-${sessionScope.successMsg}
+${successMsg}
 <br><br><br>
 <h3>회원정보 수정</h3>
 <hr><p>

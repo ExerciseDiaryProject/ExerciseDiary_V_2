@@ -27,27 +27,30 @@ public class addUser implements Action {
 		String weight = request.getParameter("weight");
 		Purpose userPurpose = null;
 
-		try{
+		try {
 			userPurpose = EDService.findPurpose(request.getParameter("purpose"));
+
+			if (id == null || id.trim().length() == 0 || pw == null || pw.trim().length() == 0 || name == null
+					|| name.trim().length() == 0 || gender == null || gender.trim().length() == 0 || age == null
+					|| age.trim().length() == 0 || height == null || height.trim().length() == 0 || weight == null
+					|| weight.trim().length() == 0 || userPurpose == null) {
+				throw new Exception("입력값이 충분하지 않습니다.");
+			}
+
 			Users user = new Users(id, pw, name, gender, age, height, weight, userPurpose);
+
+			boolean result = EDService.addUser(user);
 			
-			if(id != null && id.length() !=0 && name != null) {
-				boolean result = EDService.addUser(user);
-				if(result){
-					request.getSession().setAttribute("successMsg", "가입 완료");
-	
-					log.info("user 가입 완료");
-					url = "userLogin.html";
-				} else{
-					request.getSession().setAttribute("errorMsg", "회원가입 오류");
-				}
-			} else {
-				request.getSession().setAttribute("errorMsg", "회원님의 정보가 제대로 입력되지 않았습니다.");
+			if (result) {
+				request.setAttribute("successMsg", "가입 완료");
+				log.info("user 가입 완료");
+				url = "userLogin.html";
 			} 
-		} catch(Exception s){
+
+		} catch (Exception s) {
 			log.info("회원가입 중 에러 발생");
-			request.getSession().setAttribute("errorMsg", s.getMessage());
-		} 
+			request.setAttribute("errorMsg", s.getMessage());
+		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 }

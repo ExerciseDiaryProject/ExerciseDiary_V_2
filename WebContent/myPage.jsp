@@ -6,10 +6,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>myPage.jsp</title>
+<SCRIPT language=javascript>
+function sendDelete(){
+	let recheck = confirm("정말 삭제하시겠습니까?");
+
+	if(recheck) {
+		document.requestForm.command.value ="deleteDiary";
+		document.requestForm.submit();
+	} else{
+		return false;
+	}
+}
+</script>
 </head>
 <body>
 <center>
-${sessionScope.successMsg}
+${successMsg}
 <br><br><br>
 <h3>마이페이지</h3>
 <hr><p>
@@ -42,7 +54,7 @@ ${sessionScope.successMsg}
 		</tr>
 	 	<tr align="center">
 	 		<td colspan="2"><input type="submit" value="수정">&nbsp;&nbsp;&nbsp;
-	 		<input type="button" value="탈퇴" onclick="location.href='exerciseDiary?command=userDelete&userId=${sessionScope.id}'"></td>
+	 		<input type="button" value="탈퇴" onclick="location.href='exerciseDiary?command=deleteUser&userId=${sessionScope.id}'"></td>
 	 	</tr>
 	</table>
 	</form>

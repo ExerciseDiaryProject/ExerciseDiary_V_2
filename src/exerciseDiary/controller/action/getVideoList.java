@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
-public class getVideoList implements Action{
+public class GetVideoList implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "showError.jsp";
 

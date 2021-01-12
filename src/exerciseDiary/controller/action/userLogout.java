@@ -10,12 +10,13 @@ import javax.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class userLogout implements Action {
+public class UserLogout implements Action {
 
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession userSession = request.getSession();
 	    userSession.invalidate();
 	    request.setAttribute("successMsg","로그아웃 성공");
+	    log.info("logout");
 
 	    response.sendRedirect("userLogin.html");
 		

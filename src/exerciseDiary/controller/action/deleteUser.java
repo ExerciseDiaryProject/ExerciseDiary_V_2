@@ -1,21 +1,17 @@
 package exerciseDiary.controller.action;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import exerciseDiary.model.EDService;
-import exerciseDiary.model.entity.Purpose;
-import exerciseDiary.model.entity.Users;
-import exerciseDiary.model.entity.Video;
 import lombok.extern.slf4j.Slf4j;
 
 
 @Slf4j
-public class deleteUser implements Action{
+public class DeleteUser implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "showError.jsp";
 		String userId = (String) request.getSession().getAttribute("id");

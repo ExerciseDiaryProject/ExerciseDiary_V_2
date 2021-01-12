@@ -10,7 +10,7 @@ import exerciseDiary.model.EDService;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class getDiaryList implements Action {
+public class GetDiaryList implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "showError.jsp";
 		String userId = (String) request.getSession().getAttribute("id");

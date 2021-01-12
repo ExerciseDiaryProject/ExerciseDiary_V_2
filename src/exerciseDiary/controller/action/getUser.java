@@ -22,13 +22,13 @@ public class getUser implements Action{
 		try {
 			String id = (String)request.getSession().getAttribute("id");
 			request.getSession().setAttribute("user", EDService.getUser(id));
-			request.getSession().setAttribute("successMsg", "list 출력 성공");
+			request.setAttribute("successMsg", "list 출력 성공");
 
 			url = "myPage.jsp";
 		} catch(Exception s){
 
 			log.info("회원정보 출력 중 에러 발생");
-			request.getSession().setAttribute("errorMsg", s.getMessage());
+			request.setAttribute("errorMsg", s.getMessage());
 			s.printStackTrace();
 		}
 		request.getRequestDispatcher(url).forward(request, response);

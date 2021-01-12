@@ -2,7 +2,7 @@
 <%@ page import="exerciseDiary.model.entity.Diary" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
-${sessionScope.successMsg }
+${successMsg }
 <br><hr><br>
 <h3 align="center">다이어리 list</h3>
 <table align="center" border="0" cellpadding="5" cellspacing="2" width="70%" bordercolordark="white" bordercolorlight="black">

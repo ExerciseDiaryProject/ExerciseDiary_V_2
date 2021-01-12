@@ -29,6 +29,8 @@ public class EDService {
 		
 		if(user == null) {
 			throw new NotExistException("존재하는 id가 없습니다.");
+		} else if(user.getUserId().equals(userId) && !(user.getUserPassword().equals(password))) {
+			throw new NotExistException("비밀번호가 틀렸습니다.");
 		}
 		if(user.getUserId().equals(userId) && user.getUserPassword().equals(password)) {
 			result = true;
@@ -39,15 +41,15 @@ public class EDService {
 
 	// 회원가입
 	public static boolean addUser(Users user) throws Exception {
-		return UserDAO.addUser(user);
-//		boolean result = true;
-//		
-//		result = UserDAO.addUser(user);
-//		if(!result) {
-//			result = false;
-//			throw new MessageException("이미 존재하는 ID입니다 다시 시도 하세요");
-//		}
-//		return result;
+//		return UserDAO.addUser(user);
+		boolean result = true;
+		
+		result = UserDAO.addUser(user);
+		if(!result) {
+			result = false;
+			throw new MessageException("회원가입 실패");
+		}
+		return result;
 	}
 
 	// 목적 수정

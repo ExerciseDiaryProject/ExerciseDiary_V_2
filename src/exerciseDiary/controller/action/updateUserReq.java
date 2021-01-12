@@ -21,7 +21,7 @@ public class updateUserReq implements Action{
 
 		try {
 			String id = (String) request.getSession().getAttribute("id");
-			request.getSession().setAttribute("user", EDService.getUser(id));
+			request.setAttribute("user", EDService.getUser(id));
 
 			url = "updateUser.jsp";
 		}catch(Exception s){

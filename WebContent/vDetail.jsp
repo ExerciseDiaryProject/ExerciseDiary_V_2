@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+${successMsg}
 <div>
 <input type="hidden" value="userId=${sessionScope.id}">
 	프로그램 번호 : ${videoDetail.programNo} <br>

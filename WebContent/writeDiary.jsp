@@ -7,12 +7,12 @@
 <title>writeDiary.jsp</title>
 </head>
 <body>
-
-
 <form name="writeForm" method="post" action="exerciseDiary">
 
 <input type="hidden" name="command" value="addDiary">
 <input type="hidden" name="userId" value='${sessionScope.id}'>
+
+${successMsg}
 
 <table align="center" cellpadding="5" cellspacing="2" width="600" border="1">
 

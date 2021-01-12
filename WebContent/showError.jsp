@@ -15,7 +15,7 @@
 
 	<center>
 	<h2>에러발생</h2>
-		<h3>${sessionScope.errorMsg}</h3>
+		<h3>${errorMsg}</h3>
 			
 		<br><br><br>
 		<a href="${pageContext.request.contextPath}/userLogin.html">로그인 화면으로 이동하기</a>

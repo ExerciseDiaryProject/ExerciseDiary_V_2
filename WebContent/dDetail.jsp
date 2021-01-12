@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <HEAD>
 <SCRIPT language=javascript>
-function sendUpdate(){
-	document.requestForm.command.value ="updateForm";
-	document.requestForm.submit();
-}
+
 function sendDelete(){
 	let recheck = confirm("정말 삭제하시겠습니까?");
 
@@ -17,7 +14,7 @@ function sendDelete(){
 }
 </script>
 </HEAD>
-
+${successMsg}
 <table align="center" cellpadding="5" cellspacing="2" width="600" border='1'>
     <tr>
         <td width="1220" height="20" colspan="4" bgcolor="#336699">

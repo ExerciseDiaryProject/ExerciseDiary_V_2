@@ -22,16 +22,11 @@ public class deleteDiary implements Action{
 		try {
 			boolean result = EDService.deleteDiary(request.getParameter("diaryNo"));
 			if(result){
-//				request.getSession().setAttribute("diary", result);
-				request.getSession().setAttribute("successMsg", "삭제 완료");
+				request.setAttribute("successMsg", "삭제 완료");
 				log.info("해당 다이어리 삭제 완료");
 				response.sendRedirect("exerciseDiary?command=getDiaryList");
-				
-			}else{
-				request.setAttribute("errorMsg", "다시 시도하세요");
-				log.info("다이어리 삭제 오류");
 			}
-		}catch(Exception s){
+		} catch(Exception s){
 			log.info("다이어리 삭제 중 에러 발생 : " + s.getMessage());
 			request.setAttribute("errorMsg", s.getMessage());
 			s.printStackTrace();

@@ -16,11 +16,11 @@ public class getVideoDetail implements Action {
 
 		try {
 			request.setAttribute("videoDetail", EDService.getVideoDetail(request.getParameter("playlist")));
-			request.getSession().setAttribute("successMsg","비디오 상세보기 성공");
+			request.setAttribute("successMsg","비디오 상세보기 성공");
 			url = "vDetail.jsp";
 		} catch(Exception s){
 			log.info("비디오 상세보기 에러 발생");
-			request.getSession().setAttribute("errorMsg", s.getMessage());
+			request.setAttribute("errorMsg", s.getMessage());
 			s.printStackTrace();
 		}
 		request.getRequestDispatcher(url).forward(request, response);

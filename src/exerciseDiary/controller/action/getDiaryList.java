@@ -18,12 +18,12 @@ public class getDiaryList implements Action {
 		try {
 			
 			request.setAttribute("diaryList", EDService.getDiaryList(userId));
-			request.getSession().setAttribute("successMsg", "list 출력 성공");
+			request.setAttribute("successMsg", "list 출력 성공");
 
 			 url = "dList.jsp";
 		} catch (Exception s) {
 			log.info("다이어리 list 출력 중 에러 발생");
-			request.getSession().setAttribute("errorMsg", s.getMessage());
+			request.setAttribute("errorMsg", s.getMessage());
 			s.printStackTrace();
 		}
 		request.getRequestDispatcher(url).forward(request, response);

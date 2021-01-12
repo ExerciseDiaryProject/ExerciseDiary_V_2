@@ -1,8 +1,6 @@
 package exerciseDiary.controller.action;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -30,18 +28,23 @@ public class addDiary implements Action {
 		Video programNo = null;
 
 		try {
-			userId = UserDAO.getUserID(request.getParameter("userId"));
+			userId = EDService.getUser(request.getParameter("userId"));
 			purpose = EDService.findPurpose(request.getParameter("purpose"));
 			programNo = EDService.findProgram(request.getParameter("programNo"));
+			
+			if(diaryTitle == null || diaryTitle.trim().length() == 0 ||
+				diaryContent == null || diaryContent.trim().length() == 0 ||
+				todayWeight == null || todayWeight.trim().length() == 0 ||
+		 		userId == null ||  purpose == null || programNo == null) {
+					throw new Exception("입력값이 충분하지 않습니다.");
+			}
 
 			boolean result = EDService
 					.addDiary(Diary.builder().diaryTitle(diaryTitle).diaryContent(diaryContent).writeDate(date)
 							.todayWeight(todayWeight).userId(userId).purpose(purpose).programNo(programNo).build());
 
 			if (result) {
-//				request.getSession().setAttribute("diaryList", result);
 				request.setAttribute("successMsg", "작성 완료");
-				
 				response.sendRedirect("exerciseDiary?command=getDiaryList");
 				log.info("다이어리 작성 완료");
 

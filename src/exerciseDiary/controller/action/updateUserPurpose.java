@@ -26,13 +26,10 @@ public class updateUserPurpose implements Action{
 			boolean result = EDService.updateUserPurpose(id,purpose);
 			if(result){
 				request.getSession().setAttribute("user", EDService.getUser(id));
-				request.getSession().setAttribute("successMsg", "수정 완료");
+				request.setAttribute("successMsg", "수정 완료");
 				log.info("운동목적 수정이 완료되었습니다.");
 
 				url = "myPage.jsp";
-			}else{
-				request.setAttribute("errorMsg", "다시 시도하세요");
-				log.info("운동목적 수정  다시 시도해주세요.");
 			}
 		} catch(Exception s){
 			log.info("운동목적 수정 중 에러 발생 : " + s.getMessage());

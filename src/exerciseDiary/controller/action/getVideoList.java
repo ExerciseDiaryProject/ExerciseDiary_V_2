@@ -21,12 +21,12 @@ public class getVideoList implements Action{
 			ArrayList<Video> vListPurpose = EDService.getVideoList(request.getParameter("value"));
 			
 			request.setAttribute("vListPurpose", vListPurpose);
-			request.getSession().setAttribute("successMsg","목적별 영상 list 반환 성공");
+			request.setAttribute("successMsg","목적별 영상 list 반환 성공");
 
 			url = "vListPurpose.jsp";
 		} catch(Exception s){
 			log.info("목적별 영상 list 반환 에러 발생");
-			request.getSession().setAttribute("errorMsg", s.getMessage());
+			request.setAttribute("errorMsg", s.getMessage());
 			s.printStackTrace();
 		}
 		request.getRequestDispatcher(url).forward(request, response);

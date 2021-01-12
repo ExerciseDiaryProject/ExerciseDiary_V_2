@@ -5,30 +5,31 @@ import java.sql.SQLException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import exerciseDiary.exception.NotExistException;
 import exerciseDiary.model.entity.Users;
 import exerciseDiary.util.PublicCommon;
 
 public class UserDAO {
 
 	// 회원가입
-	public static boolean addUser(Users user) throws Exception{
+	public static boolean addUser(Users user) throws Exception {
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		boolean result = true;
 
 		try {
-			Users newUser = Users.builder().userId(user.getUserId()).userPassword(user.getUserPassword()).
-					userName(user.getUserName()).userGender(user.getUserGender()).userAge(user.getUserAge()).
-					userHeight(user.getUserHeight()).userWeight(user.getUserWeight()).purpose(user.getPurpose()).build();
-			
+			Users newUser = Users.builder().userId(user.getUserId()).userPassword(user.getUserPassword())
+					.userName(user.getUserName()).userGender(user.getUserGender()).userAge(user.getUserAge())
+					.userHeight(user.getUserHeight()).userWeight(user.getUserWeight()).purpose(user.getPurpose())
+					.build();
+
 			em.persist(newUser);
 			tx.commit();
 		} catch (Exception e) {
 			tx.rollback();
 			e.printStackTrace();
-			throw new NotExistException("회원가입 실패");
+			throw e;
+//			throw new NotExistException("회원가입 실패");
 
 		} finally {
 			em.close();
@@ -37,7 +38,7 @@ public class UserDAO {
 	}
 
 	// 회원 검색 (로그인)
-	public static Users getUser(String userId) throws SQLException{
+	public static Users getUser(String userId) throws SQLException {
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		Users user = null;
@@ -45,35 +46,16 @@ public class UserDAO {
 		try {
 			user = (Users) em.createNativeQuery("select * from users where user_id=?", Users.class)
 					.setParameter(1, userId).getSingleResult();
-			
+
 		} catch (Exception e) {
 			tx.rollback();
 			e.printStackTrace();
+			throw e;
 		} finally {
 			em.close();
 		}
 		return user;
 	}
-	
-	// 회원 검색 (로그인)
-		public static Users getUserID(String userId) throws SQLException{
-			EntityManager em = PublicCommon.getEntityManager();
-			EntityTransaction tx = em.getTransaction();
-			Users user = null;
-
-			System.out.println(userId+"dao");
-			try {
-				user = (Users) em.createNativeQuery("select * from users where user_id=?", Users.class)
-						.setParameter(1, userId).getSingleResult();
-
-			} catch (Exception e) {
-				tx.rollback();
-				e.printStackTrace();
-			} finally {
-				em.close();
-			}
-			return user;
-		}
 
 	// 회원의 운동목적 수정
 	public static boolean updateUserPurpose(String userId, String newPurpose) throws SQLException {
@@ -83,11 +65,11 @@ public class UserDAO {
 		tx.begin();
 
 		try {
-			int result = em.createNativeQuery("update users set purpose=? where user_id=?")
-					.setParameter(1, newPurpose).setParameter(2, userId).executeUpdate();
+			int result = em.createNativeQuery("update users set purpose=? where user_id=?").setParameter(1, newPurpose)
+					.setParameter(2, userId).executeUpdate();
 			tx.commit();
-			
-			if(result==1) {
+
+			if (result == 1) {
 				return true;
 			}
 		} catch (Exception e) {
@@ -109,9 +91,9 @@ public class UserDAO {
 		tx.begin();
 		try {
 			System.out.println(userId);
-			int result = em.createNativeQuery("delete from users where user_id=?")
-					.setParameter(1, userId).executeUpdate();
-			if(result == 1) {
+			int result = em.createNativeQuery("delete from users where user_id=?").setParameter(1, userId)
+					.executeUpdate();
+			if (result == 1) {
 				tx.commit();
 				return true;
 			}

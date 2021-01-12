@@ -79,7 +79,7 @@
 
 ----------------
 
-### [Exercise Diary 회원가입 및 로그인 기능]
+### :Lock And Key:[Exercise Diary 회원가입 및 로그인 기능]
 
 #### :book: 1. 메인 페이지 
     > Exercise Diary의 첫 화면

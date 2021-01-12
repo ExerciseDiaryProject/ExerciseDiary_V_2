@@ -81,25 +81,25 @@
 
 ## :scroll: 이 프로젝트의 기술 구현 방식
 
-1. 회원가입
+1. SIGN UP
     * user information create
     * user information select
     * user exercise purpose update
     * user information delete
-2. 로그인
-3. 메인 (유튜버, 채널 검색)
+2. LOGIN
+3. VIDEO 
     * all video list select
     * exercise purpose list select
-4. 일기작성 (일기 작성시 시청했던 운동의 프로그램명 검색후 프로그램 번호로 저장)
-    * DIARY CRUD 
+4. DIARY 
+    * DIARY
          * diary create
          * diary select
          * diary delete
 5. DIARY DETAIL
-    * R : diary detail select
-    * D : diary delete
+    * diary detail select
+    * diary delete
 6. DIARY LIST
-    * R : all diary select
+    * all diary select
 
 -------------------
 

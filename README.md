@@ -209,7 +209,7 @@
 
 ## :bulb: References
 
-* EXCEL DATA : https://docs.google.com/spreadsheets/d/1Wd1iWMgHv1M3Js6eivVqQLa8NnXEUmkDi_J6qhA7qHE/edit?usp=sharing 
-* OVEN APP  : https://ovenapp.io/view/XRvSHiCrtm4xgrfSSyI10tSUa14wV0Lw/fV7Lz
-* ERD CLOUD : https://www.erdcloud.com/d/ERGqnY8qjTShkzJcq
-* GitHub Organizations : https://github.com/ExerciseDiaryProject
+* EXCEL DATA : [(Excel data)](https://docs.google.com/spreadsheets/d/1Wd1iWMgHv1M3Js6eivVqQLa8NnXEUmkDi_J6qhA7qHE/edit?usp=sharing)
+* OVEN APP  : [(Oven App)](https://ovenapp.io/view/XRvSHiCrtm4xgrfSSyI10tSUa14wV0Lw/fV7Lz)
+* ERD CLOUD : [(ERD CLOUD)](https://www.erdcloud.com/d/ERGqnY8qjTShkzJcq)
+* GitHub Organizations : [(GitHub Organizations)](https://github.com/ExerciseDiaryProject)

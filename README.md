@@ -81,7 +81,7 @@
 
 ### [Exercise Diary 회원가입 및 로그인 기능]
 
-#### :Open Book: 1. 메인 페이지 
+#### :book: 1. 메인 페이지 
     > Exercise Diary의 첫 화면
 
     > Log in을 바로 할 수 있는 화면과 Sign up을 할 수 있는 버튼 기능 구현(ID/PW 입력창, Log In 버튼, 회원가입 버튼 생성)
